@@ -2540,11 +2540,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joao.burigo\\OneDrive - Audaces Automacao e Informatica Industrial Ltda\\Área de Trabalho\\repositorios\\DatingApp\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\joao.burigo\\OneDrive - Audaces Automacao e Informatica Industrial Ltda\\Área de Trabalho\\repositorios\\DatingApp-net-\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\joao.burigo\\OneDrive - Audaces Automacao e Informatica Industrial Ltda\\Área de Trabalho\\repositorios\\DatingApp\\API\\API.csproj",
+      "projectPath": "C:\\Users\\joao.burigo\\OneDrive - Audaces Automacao e Informatica Industrial Ltda\\Área de Trabalho\\repositorios\\DatingApp-net-\\API\\API.csproj",
       "packagesPath": "C:\\Users\\joao.burigo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joao.burigo\\OneDrive - Audaces Automacao e Informatica Industrial Ltda\\Área de Trabalho\\repositorios\\DatingApp\\API\\obj\\",
+      "outputPath": "C:\\Users\\joao.burigo\\OneDrive - Audaces Automacao e Informatica Industrial Ltda\\Área de Trabalho\\repositorios\\DatingApp-net-\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
