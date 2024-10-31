@@ -251,3 +251,5 @@ C:\Users\joao.burigo\OneDrive - Audaces Automacao e Informatica Industrial Ltda\
 C:\Users\joao.burigo\OneDrive - Audaces Automacao e Informatica Industrial Ltda\Área de Trabalho\repositorios\DatingApp-net-\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\joao.burigo\OneDrive - Audaces Automacao e Informatica Industrial Ltda\Área de Trabalho\repositorios\DatingApp-net-\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\joao.burigo\OneDrive - Audaces Automacao e Informatica Industrial Ltda\Área de Trabalho\repositorios\DatingApp-net-\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\joao.burigo\OneDrive - Audaces Automacao e Informatica Industrial Ltda\Área de Trabalho\repositorios\DatingApp-net-\api\bin\Debug\net8.0\Data\UserSeedData.json
+C:\Users\joao.burigo\OneDrive - Audaces Automacao e Informatica Industrial Ltda\Área de Trabalho\repositorios\DatingApp-net-\api\bin\Debug\net8.0\AutoMapper.dll
