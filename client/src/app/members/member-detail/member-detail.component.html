@@ -42,9 +42,12 @@
                     <p>{{member.interests}}</p>
                 </tab>
                 <tab heading="Photos" #photoTab="tab">
-                    <!-- @if (photoTab.active) {
-                        <gallery [items]="images" class="gallery"></gallery>
-                    } -->
+                    @if (photoTab.active) {
+                        <gallery 
+                        [items]="images" 
+                        class="gallery3"
+                        ></gallery>
+                    }
                 </tab>
                 <tab heading="Messages">
                     <p>Messages will go here</p>
