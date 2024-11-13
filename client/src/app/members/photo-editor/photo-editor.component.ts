@@ -14,7 +14,7 @@ import { Photo } from '../../_models/photo';
   templateUrl: './photo-editor.component.html',
   styleUrl: './photo-editor.component.css'
 })
-export class PhotoEditorComponent  implements OnInit{
+export class PhotoEditorComponent implements OnInit {
   private accountService = inject(AccountService);
   private memberService = inject(MembersService);
   member = input.required<Member>();
@@ -27,44 +27,44 @@ export class PhotoEditorComponent  implements OnInit{
     this.initializeUploader();
   }
 
-  fileOverBase(e: any){
+  fileOverBase(e: any) {
     this.hasBaseDropZoneOver = e;
   }
-  
-  deletePhoto(photo: Photo){
+
+  deletePhoto(photo: Photo) {
     this.memberService.deletPhoto(photo).subscribe({
       next: _ => {
-        const updateMember = {...this.member()}
+        const updateMember = { ...this.member() }
         updateMember.photos = updateMember.photos.filter(x => x.id !== photo.id)
         this.memberChange.emit(updateMember)
       }
     })
   }
 
-  setMainPhoto(photo: Photo){
+  setMainPhoto(photo: Photo) {
     this.memberService.setMainPhoto(photo).subscribe({
       next: _ => {
         const user = this.accountService.currentUser();
-        if(user){
+        if (user) {
           user.photoUrl = photo.url
           this.accountService.setCurrentUser(user);
         }
-        const updateMember = {...this.member()}
+        const updateMember = { ...this.member() }
         updateMember.photoUrl = photo.url;
         updateMember.photos.forEach(p => {
-          if(p.isMain) p.isMain = false;
-          if(p.id === photo.id) p.isMain = true;
+          if (p.isMain) p.isMain = false;
+          if (p.id === photo.id) p.isMain = true;
         });
         this.memberChange.emit(updateMember);
       }
     })
   }
 
-  initializeUploader(){
+  initializeUploader() {
     this.uploader = new FileUploader({
       url: this.baseUrl + 'users/add-photo',
       authToken: 'Bearer ' + this.accountService.currentUser()?.token,
-      isHTML5:true,
+      isHTML5: true,
       allowedFileType: ['image'],
       removeAfterUpload: true,
       autoUpload: false,
@@ -77,9 +77,22 @@ export class PhotoEditorComponent  implements OnInit{
 
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       const photo = JSON.parse(response);
-      const updateMember = {...this.member()}
+      const updateMember = { ...this.member() }
       updateMember.photos.push(photo);
       this.memberChange.emit(updateMember);
+      if (photo.isMain) {
+        const user = this.accountService.currentUser();
+        if (user) {
+          user.photoUrl = photo.url
+          this.accountService.setCurrentUser(user);
+        }
+        updateMember.photoUrl = photo.url;
+        updateMember.photos.forEach(p => {
+          if (p.isMain) p.isMain = false;
+          if (p.id === photo.id) p.isMain = true;
+        });
+        this.memberChange.emit(updateMember); 
+      }
     }
   }
 }
