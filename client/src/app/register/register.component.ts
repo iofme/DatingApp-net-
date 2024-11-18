@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent implements OnInit {
-  private fb = inject(FormBuilder);
+  private fb = inject(FormBuilder); 
   private accountService = inject(AccountService)
   private router = inject(Router)
   cancelRegister = output<boolean>();
