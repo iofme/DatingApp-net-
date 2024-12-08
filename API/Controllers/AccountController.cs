@@ -26,7 +26,7 @@ public class AccountController(UserManager<AppUser> userManager, ITokenService t
 
         var user = mapper.Map<AppUser>(registerDto);
 
-        user.UserName = registerDto.Username.ToLower();
+        user.UserName = registerDto.Username.ToUpper();
 
         var result = await userManager.CreateAsync(user, registerDto.Password);
 
