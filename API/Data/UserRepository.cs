@@ -27,20 +27,22 @@ namespace API.Data
             var query = context.Users.AsQueryable();
             query = query.Where(x => x.UserName != userParams.CurrentUsername);
 
-            if(userParams.Gender != null){
+            if (userParams.Gender != null)
+            {
                 query = query.Where(x => x.Gender == userParams.Gender);
             }
 
-            var minDob = DateOnly.FromDateTime(DateTime.Today.AddYears(-userParams.MaxAge -1));
+            var minDob = DateOnly.FromDateTime(DateTime.Today.AddYears(-userParams.MaxAge - 1));
             var maxDob = DateOnly.FromDateTime(DateTime.Today.AddYears(-userParams.MinAge));
 
             query = query.Where(x => x.DateOfBirth >= minDob && x.DateOfBirth <= maxDob);
 
-            query = userParams.OrderBy switch{
+            query = userParams.OrderBy switch
+            {
                 "created" => query.OrderByDescending(x => x.Created),
                 _ => query.OrderByDescending(x => x.LastActive)
             };
-            
+
             return await PagedList<MemberDto>.CreateAsync(query.ProjectTo<MemberDto>(mapper.ConfigurationProvider), userParams.PageNumber, userParams.PageSize);
         }
 
@@ -63,14 +65,9 @@ namespace API.Data
             .ToListAsync();
         }
 
-        public async Task<bool> SaveAllAsync()
-        {
-            return await context.SaveChangesAsync() > 0;
-        }
-
         public void Upadate(AppUser user)
         {
             context.Entry(user).State = EntityState.Modified;
-        } 
+        }
     }
 }
